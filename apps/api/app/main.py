@@ -31,6 +31,7 @@ from apps.api.app.routers import (
     opportunities,
     profiles,
     signals,
+    ws,
 )
 from packages.config.loader import ConfigLoader
 from packages.core.exceptions import AgentError, ConfigNotFoundError, ConfigValidationError
@@ -181,3 +182,4 @@ app.include_router(opportunities.router, prefix="/api/v1/opportunities", tags=["
 app.include_router(signals.router, prefix="/api/v1/signals", tags=["signals"])
 app.include_router(config.router, prefix="/api/v1/config", tags=["config"])
 app.include_router(admin.router, prefix="/api/v1/admin", tags=["admin"])
+app.include_router(ws.router, tags=["websocket"])

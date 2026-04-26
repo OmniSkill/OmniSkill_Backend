@@ -48,6 +48,7 @@ dependencies = [
     "passlib>=1.7.4",
     "opentelemetry-instrumentation-fastapi>=0.62b1",
     "email-validator>=2.3.0",
+    "websockets>=16.0",
 ]
 
 [project.optional-dependencies]
