@@ -1,0 +1,31 @@
+{
+  "context_id": "bgd-rural-2024",
+  "country": "BGD",
+  "region_type": "rural_agricultural",
+  "language": "bn",
+  "data_sources": {
+    "ilostat": "https://www.ilo.org/ilostat/api/v1",
+    "wdi": "https://api.worldbank.org/v2",
+    "esco": "https://ec.europa.eu/esco/api",
+    "wittgenstein": "https://dataexplorer.wittgensteincentre.org/api"
+  },
+  "automation_calibration": 0.25,
+  "opportunity_types": [
+    "informal_employment",
+    "self_employment",
+    "cooperative",
+    "public_works",
+    "micro_enterprise"
+  ],
+  "wage_vintage": 2024,
+  "education_taxonomy": {
+    "no_formal": "ISCED-0",
+    "primary": "ISCED-1",
+    "junior_secondary": "ISCED-2",
+    "secondary": "ISCED-3",
+    "higher_secondary": "ISCED-3",
+    "diploma": "ISCED-5",
+    "bachelors": "ISCED-6",
+    "masters": "ISCED-7"
+  }
+}

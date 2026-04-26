@@ -1,0 +1,96 @@
+[project]
+name = "unmapped-backend"
+version = "0.1.0"
+description = "UNMAPPED – backend monorepo for labour-market intelligence in LMICs"
+requires-python = ">=3.12"
+readme = "README.md"
+
+dependencies = [
+    # --- Web / API ---
+    "fastapi[standard]>=0.115,<0.116",
+    "uvicorn[standard]>=0.32",
+    "pydantic>=2,<3",
+    "pydantic-settings>=2",
+    # --- LLM / AI ---
+    "langchain>=0.3,<0.4",
+    "langchain-google-genai>=2",
+    "langgraph>=0.2,<0.3",
+    "langsmith>=0.1",
+    "google-generativeai>=0.8",
+    # --- Data pipelines ---
+    "prefect>=3,<4",
+    # --- Database ---
+    "sqlalchemy[asyncio]>=2,<3",
+    "asyncpg>=0.30",
+    "alembic>=1.14",
+    # --- Vector store ---
+    "qdrant-client>=1.12",
+    # --- Cache / task queue ---
+    "redis[asyncio]>=5",
+    "arq>=0.26",
+    # --- HTTP / resilience ---
+    "httpx>=0.28",
+    "tenacity>=9",
+    # --- Data wrangling ---
+    "pandas>=2",
+    "polars>=1",
+    # --- dbt ---
+    "dbt-core>=1.9",
+    "dbt-postgres>=1.9",
+    # --- Observability ---
+    "loguru>=0.7",
+    "opentelemetry-sdk>=1",
+    # --- Config hot-reload ---
+    "watchfiles>=1",
+    "slowapi>=0.1.9",
+    "pyjwt[crypto]>=2.12.1",
+    "bcrypt>=5.0.0",
+    "passlib>=1.7.4",
+    "opentelemetry-instrumentation-fastapi>=0.62b1",
+    "email-validator>=2.3.0",
+    "websockets>=16.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8",
+    "pytest-asyncio>=0.24",
+    "pytest-cov>=6",
+    "ruff>=0.8",
+    "mypy>=1.13",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["packages", "apps"]
+
+[dependency-groups]
+dev = [
+    "pytest>=8",
+    "pytest-asyncio>=0.24",
+    "pytest-cov>=6",
+    "ruff>=0.8",
+    "mypy>=1.13",
+]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "W", "UP", "B", "SIM", "ASYNC"]
+ignore = ["E501", "B008"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+addopts = "--strict-markers -ra"
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+warn_return_any = true
+warn_unused_configs = true
