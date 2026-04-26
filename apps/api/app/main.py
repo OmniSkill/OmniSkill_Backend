@@ -32,6 +32,8 @@ app = FastAPI(
     title="UNMAPPED API",
     description="Labour-market intelligence platform for LMICs",
     version="0.1.0",
+    docs_url="/docs",
+    openapi_url="/openapi.json",
     lifespan=lifespan,
 )
 
